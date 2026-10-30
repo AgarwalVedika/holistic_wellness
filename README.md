@@ -17,3 +17,10 @@ Pages:
 - `prime.html` — Free vs Prime comparison (also linked from You → Report card)
 
 Locally, open `index.html` in any browser. There's no build step.
+
+## Decks
+
+- [`decks/AOL-Trustees-Strategy-Roadmap.pptx`](decks/AOL-Trustees-Strategy-Roadmap.pptx) — product strategy & roadmap, prepared for Gurudev and the trustees
+- [`decks/AOL-Investor-Summary.pptx`](decks/AOL-Investor-Summary.pptx) — investor & leadership summary
+
+Both decks refer to the prototype above. Their numbers are illustrative too (see the note at the top).
