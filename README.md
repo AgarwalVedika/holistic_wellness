@@ -2,7 +2,9 @@
 
 A clickable, single-file prototype of a meditation and wellness app. It covers onboarding, a Today screen, Explore, an AI guide (Sahaj), Live sessions, a You/progress screen and a guided breathing player.
 
-**Unofficial concept.** This project is not affiliated with or endorsed by The Art of Living Foundation. All names, content and figures are illustrative.
+**Unofficial concept.** This project is not affiliated with or endorsed by The Art of Living Foundation. All names and content are illustrative.
+
+**Numbers are not official.** User counts, subscriber counts, revenue figures, prices and projections in this prototype and any accompanying materials are illustrative assumptions, not official Art of Living data.
 
 https://claude.ai/public/artifacts/4acc5328-ba6c-4b23-a48c-4b0eb1ced9b0
 
