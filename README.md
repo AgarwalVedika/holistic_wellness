@@ -4,6 +4,8 @@ A clickable, single-file prototype of a meditation and wellness app. It covers o
 
 **Unofficial concept.** This project is not affiliated with or endorsed by The Art of Living Foundation. All names, content and figures are illustrative.
 
+https://claude.ai/public/artifacts/4acc5328-ba6c-4b23-a48c-4b0eb1ced9b0
+
 ## View it
 
 Live site (once GitHub Pages is on): https://agarwalvedika.github.io/holistic_wellness/
