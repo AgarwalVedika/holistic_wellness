@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Art of Living · Free vs Prime</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FBF6EE;--card:#FFFDF8;--ink:#211B45;--ink-2:#5C5680;--ink-3:#938FAD;
+    --saffron:#E07B2E;--saffron-deep:#A8530F;--gold:#E0A94B;--gold-deep:#B5832F;--gold-tint:#FAF0DA;
+    --sage:#4F8A77;--sage-deep:#2F5C4D;--sage-tint:#E3EFEA;--line:rgba(33,27,69,.10);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Hanken Grotesk",system-ui,sans-serif;color:var(--ink);
+    background:radial-gradient(120% 80% at 50% 0%,#efe9df,#e3dccf 70%,#d9d2c4);
+    min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;padding:34px 16px;-webkit-font-smoothing:antialiased}
+  .disclaimer{font-size:12px;line-height:1.5;color:#6b6585;text-align:center;max-width:392px}
+  .disclaimer a{color:inherit}
+  .phone{width:392px;max-width:100%;height:828px;background:var(--paper);border-radius:42px;
+    box-shadow:0 30px 80px -20px rgba(33,27,69,.45),0 0 0 10px #1b1730,0 0 0 11px #2b2548;
+    overflow:hidden;position:relative;display:flex;flex-direction:column}
+  .notch{height:34px;display:flex;align-items:center;justify-content:space-between;padding:0 26px;font-size:13px;font-weight:600;color:var(--ink-2);z-index:5;flex:none}
+  .notch .pill{position:absolute;left:50%;top:9px;transform:translateX(-50%);width:96px;height:18px;background:#1b1730;border-radius:12px}
+  .notch .dots{display:flex;gap:4px}.notch .dots span{width:5px;height:5px;border-radius:50%;background:var(--ink-3)}
+  .lamp .flame{transform-origin:center bottom;animation:flicker 3.2s ease-in-out infinite}
+  @keyframes flicker{0%,100%{transform:scale(1)}50%{transform:scale(.9) translateY(.6px);opacity:.86}}
+  @media (prefers-reduced-motion:reduce){.flame{animation:none!important}}
+
+  .head{padding:8px 22px 6px;flex:none}
+  .head .x{width:32px;height:32px;border-radius:50%;border:1px solid var(--line);background:rgba(255,255,255,.5);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--ink-2);margin-bottom:12px}
+  .head .x svg{width:16px;height:16px}
+  .head .x:focus-visible{outline:2px solid var(--saffron);outline-offset:2px}
+  .head h1{font-family:"Fraunces",serif;font-size:25px;font-weight:500;line-height:1.1}
+  .head p{font-size:13px;color:var(--ink-2);margin-top:6px;line-height:1.45}
+  .head p b{color:var(--ink)}
+
+  .scroll{flex:1;overflow-y:auto;scrollbar-width:none;padding:8px 22px 0}.scroll::-webkit-scrollbar{display:none}
+
+  .table{position:relative}
+  .colhead{display:flex;align-items:stretch;position:sticky;top:0;background:var(--paper);z-index:3;padding-top:4px}
+  .colhead .feat{flex:1}
+  .colhead .free,.colhead .prime{width:78px;flex:none;text-align:center}
+  .colhead .free{font-size:13px;font-weight:700;color:var(--ink-3);display:flex;align-items:center;justify-content:center;padding-bottom:8px}
+  .colhead .prime{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:0}
+  .prime-cap{width:78px;background:var(--ink);border-radius:12px 12px 0 0;padding:8px 0 7px;display:flex;flex-direction:column;align-items:center;gap:3px}
+  .prime-cap .lm{width:15px;height:17px}
+  .prime-cap b{font-size:12.5px;font-weight:700;color:var(--gold);letter-spacing:.02em}
+
+  .grp{display:flex;align-items:stretch;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--saffron-deep)}
+  .grp .gt{flex:1;padding:16px 0 7px}
+  .grp.first .gt{padding-top:8px}
+  .grp .gap{width:78px;flex:none}
+  .grp .strip{width:78px;flex:none;background:var(--gold-tint)}
+  .row{display:flex;align-items:center;border-top:1px solid var(--line);min-height:46px}
+  .row .feat{flex:1;font-size:13px;font-weight:500;color:var(--ink);padding:9px 10px 9px 0;line-height:1.25}
+  .row .free,.row .prime{width:78px;flex:none;display:flex;flex-direction:column;align-items:center;justify-content:center;align-self:stretch;font-size:11.5px;font-weight:600;text-align:center}
+  .row .prime{background:var(--gold-tint)}
+  .row.last .prime{border-radius:0 0 12px 12px}
+  .row.hl .feat{font-weight:700;color:var(--saffron-deep)}
+  .row.hl .prime{background:#F6E4C2}
+
+  .yes{width:23px;height:23px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+  .yes svg{width:13px;height:13px;color:#fff}
+  .free .yes{background:var(--sage)}
+  .prime .yes{background:var(--gold-deep)}
+  .dash{color:var(--ink-3);font-size:16px}
+  .lim{color:var(--ink-3);font-weight:600;line-height:1.2}
+  .prime .lim{color:var(--gold-deep)}
+  .plus{font-size:10px;color:var(--gold-deep);font-weight:700;display:block;margin-top:2px}
+
+  .reassure{display:flex;gap:10px;align-items:flex-start;background:var(--sage-tint);border-radius:14px;padding:13px 15px;margin:18px 0 18px}
+  .reassure svg{width:19px;height:19px;color:var(--sage-deep);flex:none;margin-top:1px}
+  .reassure p{font-size:12.5px;color:var(--sage-deep);line-height:1.45}.reassure b{font-weight:700}
+
+  .foot{flex:none;border-top:1px solid var(--line);background:rgba(251,246,238,.97);backdrop-filter:blur(10px);padding:14px 22px 18px}
+  .foot .prow{display:flex;align-items:baseline;gap:8px;margin-bottom:11px}
+  .foot .prow b{font-family:"Fraunces",serif;font-size:22px;font-weight:500}
+  .foot .prow span{font-size:13px;color:var(--ink-3)}
+  .foot .prow .trial{margin-left:auto;font-size:11px;font-weight:700;color:var(--sage-deep);background:var(--sage-tint);padding:4px 10px;border-radius:20px}
+  .cta{width:100%;background:linear-gradient(150deg,var(--gold),var(--gold-deep));color:#3a2a08;border:0;font-family:inherit;font-size:16px;font-weight:700;padding:15px;border-radius:30px;cursor:pointer;transition:.15s}
+  .cta:hover{filter:brightness(1.04)}.cta:focus-visible,.stay:focus-visible{outline:2px solid var(--saffron);outline-offset:2px}
+  .stay{display:block;margin:11px auto 0;background:none;border:0;font-family:inherit;font-size:13px;font-weight:600;color:var(--ink-3);cursor:pointer;text-decoration:none;text-align:center}
+</style>
+</head>
+<body>
+<div class="phone">
+  <div class="notch"><span>8:41</span><span class="pill"></span><div class="dots"><span></span><span></span><span></span></div></div>
+
+  <div class="head">
+    <a class="x" href="index.html" aria-label="Close and go back to the app"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg></a>
+    <h1>What you get,<br>side by side</h1>
+    <p>Free is yours to keep, forever. <b>Prime lifts the limits</b> and unlocks what's only on Prime.</p>
+  </div>
+
+  <div class="scroll">
+    <div class="table" id="table"></div>
+
+    <div class="reassure">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3Z" stroke-linejoin="round"/><path d="m9 12 2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <p><b>No catch.</b> Your streaks, your plan, and the daily practice never get taken away if you stay on Free.</p>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="prow"><b>₹1,499</b><span>/ year · ≈ ₹125/mo</span><span class="trial">7-day free trial</span></div>
+    <button class="cta">Try Prime free</button>
+    <a class="stay" href="index.html">Stay on Free for now</a>
+  </div>
+</div>
+<p class="disclaimer">Unofficial concept prototype. Not affiliated with or endorsed by The Art of Living Foundation. Prices and features are illustrative. <a href="index.html">Back to the app</a></p>
+
+<script>
+  const groups=[
+    {title:'Your daily practice', rows:[
+      {f:'One practice, picked each day', free:'yes', prime:'yes'},
+      {f:'Build & swap your whole day', free:'no', prime:'yes'},
+      {f:'Ask Sahaj, your AI guide', free:'Daily plan', prime:'Unlimited'},
+      {f:'Daily wisdom byte', free:'yes', prime:'yes'},
+      {f:'Reminders & calendar sync', free:'Reminders', prime:'+ Calendar'},
+    ]},
+    {title:'The library', rows:[
+      {f:'Guided meditations', free:'10 to start', prime:'Full · 40+'},
+      {f:'Sleep stories & Yoga Nidra', free:'A few', prime:'All'},
+      {f:'Masterclasses · Body · Mind · Spirit', free:'Intro lessons', prime:'Full'},
+      {f:'Chants & bhajans (1,000+)', free:'A selection', prime:'Full'},
+      {f:'Wisdom talks, Gita & philosophy', free:'A selection', prime:'Full archive'},
+      {f:'SKY breath basics', free:'yes', prime:'yes'},
+    ]},
+    {title:'Progress & reflection', rows:[
+      {f:'Streaks, journey & milestones', free:'yes', prime:'yes'},
+      {f:'Monthly report card', free:'Snapshot', prime:'Full + trends'},
+      {f:'Mood check-ins & history', free:'This week', prime:'Full history'},
+      {f:'Personal notes (manan)', free:'Quick notes', prime:'Unlimited'},
+      {f:'Stars & rewards', free:'yes', prime:'yes'},
+    ]},
+    {title:'Community & live', rows:[
+      {f:'Live group meditations', free:'yes', prime:'yes', plus:'+ replays'},
+      {f:'Your Sangha & groups', free:'yes', prime:'yes'},
+      {f:'Guru-guidance talks', free:'Live only', prime:'+ archive'},
+    ]},
+    {title:'Only on Prime', rows:[
+      {f:'Download & practise offline', free:'no', prime:'yes'},
+      {f:'Ad-free, no interruptions', free:'no', prime:'yes'},
+      {f:'15% off every course & retreat', free:'no', prime:'yes', hl:true},
+    ]},
+  ];
+  const check='<span class="yes" role="img" aria-label="Included"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m5 13 4 4 10-11" stroke-linecap="round" stroke-linejoin="round"/></svg></span>';
+  function cell(val,plus,isPrime){
+    if(val==='yes'){return check + (plus&&isPrime?`<span class="plus">${plus}</span>`:'');}
+    if(val==='no'){return '<span class="dash" aria-label="Not included">—</span>';}
+    return `<span class="lim">${val}</span>`;
+  }
+  const lamp='<svg class="lm" viewBox="0 0 26 30" fill="none"><path class="flame" d="M13 2c2.4 3 3.2 5.4 1.6 7.6C13.4 11.2 13 12 13 13c-1.8-.4-3-2-3-4 0-2.4 1.4-4.6 3-7Z" fill="#E0A94B"/><path d="M3 16h20l-3 6.5c-.6 1.4-2 2.3-3.5 2.3h-7c-1.5 0-2.9-.9-3.5-2.3L3 16Z" fill="#E0A94B"/><ellipse cx="13" cy="16" rx="10" ry="2.2" fill="#FCD66B"/></svg>';
+  let html='<div class="colhead"><div class="feat"></div><div class="free">Free</div>'+
+    `<div class="prime"><div class="prime-cap">${lamp}<b>Prime</b></div></div></div>`;
+  const total=groups.reduce((n,g)=>n+g.rows.length,0);
+  let idx=0;
+  groups.forEach((g,gi)=>{
+    // group header keeps the gold Prime column continuous
+    html+=`<div class="grp${gi===0?' first':''}"><span class="gt">${g.title}</span><span class="gap"></span><span class="strip"></span></div>`;
+    g.rows.forEach(r=>{
+      idx++;
+      html+=`<div class="row${r.hl?' hl':''}${idx===total?' last':''}"><div class="feat">${r.f}</div>`+
+        `<div class="free">${cell(r.free,null,false)}</div>`+
+        `<div class="prime">${cell(r.prime,r.plus,true)}</div></div>`;
+    });
+  });
+  document.getElementById('table').innerHTML=html;
+</script>
+</body>
+</html>

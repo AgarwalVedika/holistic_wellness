@@ -10,4 +10,8 @@ https://claude.ai/public/artifacts/4acc5328-ba6c-4b23-a48c-4b0eb1ced9b0
 
 Live site (once GitHub Pages is on): https://agarwalvedika.github.io/holistic_wellness/
 
+Pages:
+- `index.html` — the main app prototype
+- `prime.html` — Free vs Prime comparison (also linked from You → Report card)
+
 Locally, open `index.html` in any browser. There's no build step.
