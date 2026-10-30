@@ -24,3 +24,8 @@ Locally, open `index.html` in any browser. There's no build step.
 - [`decks/AOL-Investor-Summary.pptx`](decks/AOL-Investor-Summary.pptx) — investor & leadership summary
 
 Both decks refer to the prototype above. Their numbers are illustrative too (see the note at the top).
+
+## Roadmap
+
+- [`roadmap/ROADMAP.md`](roadmap/ROADMAP.md) — internal product roadmap (Now / Next / Later / Parked)
+- [`roadmap/roadmap.csv`](roadmap/roadmap.csv) — the same rows as a spreadsheet
